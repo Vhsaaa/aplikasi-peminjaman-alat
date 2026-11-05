@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Aplikasi Peminjaman Alat
 
 ## Deskripsi Aplikasi
@@ -72,3 +73,6 @@ git branch -M main
 git remote add origin https://github.com/USERNAME-ANDA/aplikasi-peminjaman.git
 git push -u origin main
 ```
+=======
+# aplikasi-peminjaman-alat
+>>>>>>> 96e291f5e2181ebd41ba097cf8aed87051e1bccb
