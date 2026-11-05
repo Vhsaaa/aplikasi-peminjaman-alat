@@ -1,0 +1,127 @@
+body {
+    background: #eef4ff;
+    color: #1d2a39;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: linear-gradient(180deg, #0b1f3a 0%, #123d72 100%);
+    color: #fff;
+    z-index: 1000;
+}
+
+.sidebar {
+    padding-top: 10px;
+}
+
+.brand-box {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.brand-icon {
+    font-size: 2rem;
+    color: #dfeeff;
+}
+
+.brand-title {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.sidebar .nav-link {
+    color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    margin: 4px 12px;
+    padding: 12px 14px;
+    transition: all 0.2s ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+}
+
+.main-content {
+    margin-left: 260px;
+    min-height: 100vh;
+}
+
+.page-container {
+    padding: 25px;
+}
+
+.stat-card {
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid #e9eefb;
+    box-shadow: 0 8px 18px rgba(17,34,74,0.05);
+    padding: 20px;
+    height: 100%;
+}
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #fff;
+}
+
+.bg-primary-soft { background: #2f6ed6; }
+.bg-success-soft { background: #1f9d75; }
+.bg-warning-soft { background: #f4b740; }
+.bg-info-soft { background: #4aa3d8; }
+.bg-danger-soft { background: #d94a4a; }
+
+.card-box {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 18px rgba(17,34,74,0.05);
+    border: 1px solid #edf1fb;
+}
+
+.table thead th {
+    background: #eaf2ff;
+    color: #123d72;
+    font-weight: 700;
+}
+
+.btn-primary {
+    background: #123d72;
+    border-color: #123d72;
+}
+
+.btn-primary:hover {
+    background: #0d2e5b;
+    border-color: #0d2e5b;
+}
+
+.btn-success {
+    background: #1f9d75;
+    border-color: #1f9d75;
+}
+
+.btn-warning {
+    background: #f4b740;
+    border-color: #f4b740;
+}
+
+@media (max-width: 768px) {
+    .sidebar-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+}
