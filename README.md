@@ -1,78 +1,44 @@
-<<<<<<< HEAD
-# Aplikasi Peminjaman Alat
+# Aplikasi Peminjaman Alat — PHP Native + MySQL
 
-## Deskripsi Aplikasi
-Sistem informasi berbasis web untuk mengelola proses peminjaman dan pengembalian alat secara digital. Aplikasi ini dibuat untuk kebutuhan UKK RPL Tahun Pelajaran 2026/2027 dan mendukung 3 role user: Admin, Petugas, dan Peminjam.
-
-## Fitur Aplikasi
-- Login 3 role dengan PHP Session
-- CRUD User, Alat, dan Kategori
-- Pengajuan dan persetujuan peminjaman
-- Proses pengembalian dan perhitungan denda otomatis
-- Log aktivitas pengguna
-- Laporan dan cetak data
-- Dashboard sesuai role
-- Responsive design dengan Bootstrap 5
-
-## Teknologi yang Digunakan
-- PHP 8 Native
-- MySQL
-- HTML5, CSS3, JavaScript
-- Bootstrap 5
-- Font Awesome
-- SweetAlert2
-- XAMPP
-
-## Persyaratan Instalasi
-- XAMPP dengan PHP 8 dan MySQL aktif
+## Kebutuhan
+- Laragon (Apache + MySQL)
+- PHP 8.0+ (disarankan 8.1+)
 - Browser modern
-- Text editor seperti VS Code
 
-## Cara Menjalankan Aplikasi
-1. Letakkan folder project di direktori `htdocs` atau `www` sesuai XAMPP.
-2. Jalankan Apache dan MySQL di XAMPP.
-3. Import file `database/db_peminjaman.sql` ke phpMyAdmin atau MySQL.
-4. Buka browser dan akses `http://localhost/peminjaman-alat/index.php`.
+## Instalasi di Laragon
+1. Ekstrak folder `peminjaman-alat` ke `C:\laragon\www\`.
+2. Jalankan Laragon, klik **Start All**.
+3. Buka `http://localhost/phpmyadmin`.
+4. Import file `database/peminjaman_alat.sql`.
+5. Periksa `config/database.php`. Default Laragon: host `127.0.0.1`, database `peminjaman_alat`, user `root`, password kosong.
+6. Buka `http://localhost/peminjaman-alat/`.
 
-## Cara Import Database
-1. Buka phpMyAdmin.
-2. Buat database dengan nama `db_peminjaman`.
-3. Import file `database/db_peminjaman.sql`.
+## Akun demo
+Semua akun demo menggunakan password `password`:
+- Admin: `admin`
+- Petugas: `petugas`
+- Peminjam: `peminjam`
 
-## Konfigurasi Koneksi Database
-File koneksi berada di `config/database.php`.
+Ganti password demo dan hapus/nonaktifkan akun demo sebelum aplikasi digunakan sungguhan.
 
-```php
-<?php
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$dbname = 'db_peminjaman';
-```
+## Alur penggunaan
+1. Admin membuat akun, kategori, dan data alat.
+2. Peminjam melihat daftar alat lalu mengajukan peminjaman.
+3. Petugas menyetujui atau menolak pengajuan.
+4. Saat disetujui, stok tersedia dikurangi.
+5. Peminjam mengajukan pengembalian setelah menyerahkan alat secara fisik.
+6. Petugas memverifikasi kondisi alat; stok dikembalikan dan transaksi menjadi selesai.
+7. Petugas memilih rentang tanggal untuk laporan dan mencetaknya.
 
-## Akun Demo
-- Admin
-  - Username: `admin`
-  - Password: `admin123`
-- Petugas
-  - Username: `petugas`
-  - Password: `petugas123`
-- Peminjam
-  - Username: `peminjam`
-  - Password: `peminjam123`
+## Hak akses sesuai lembar tugas
+- Admin: Login, Logout, CRUD user, CRUD alat, CRUD kategori, melihat/mengelola data peminjaman, melihat data pengembalian, log aktivitas.
+- Petugas: Login, Logout, menyetujui peminjaman, memantau dan memverifikasi pengembalian, mencetak laporan.
+- Peminjam: Login, Logout, melihat daftar alat, mengajukan peminjaman, mengajukan pengembalian.
 
-## Screenshot Aplikasi
-Belum tersedia. Anda dapat menambahkan screenshot pada folder `docs` dan menghubungkan ke README setelah pengambilan gambar.
-
-## Git Commands
-```bash
-git init
-git add .
-git commit -m "feat: Selesaikan Aplikasi Peminjaman Alat UKK RPL"
-git branch -M main
-git remote add origin https://github.com/USERNAME-ANDA/aplikasi-peminjaman.git
-git push -u origin main
-```
-=======
-# aplikasi-peminjaman-alat
->>>>>>> 96e291f5e2181ebd41ba097cf8aed87051e1bccb
+## Catatan implementasi
+- Password disimpan menggunakan `password_hash()` dan diverifikasi dengan `password_verify()`.
+- Query memakai PDO prepared statements.
+- Form POST dilindungi token CSRF.
+- Akses halaman dibatasi berdasarkan role.
+- Proses persetujuan dan verifikasi pengembalian menggunakan transaksi database.
+- Untuk produksi, tambahkan HTTPS, backup rutin, kebijakan pergantian password, validasi tanggal di server yang lebih ketat, serta audit keamanan.
